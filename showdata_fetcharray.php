@@ -25,7 +25,7 @@ echo "<hr>";
 $row = mysqli_fetch_array($result,MYSQLI_BOTH);
 
 echo "ລະຫັດພະນັກງານ:".$row["id"]."<br>";
-echo "ຊື່:".$row["1"]."<br>";
+echo "ຊື່:".$row["1 "]."<br>";
 echo "ນາມສະກຸນ:".$row["lname"]."<br>";
 echo "ເພດ:".$row["gender"]."<br>";
 echo "ທັກສະ:".$row["skill"]."<br>";
