@@ -4,6 +4,7 @@ $sql = "select * from employees";
 $result = mysqli_query($con,$sql);
 
 $count = mysqli_num_rows($result);
+$order = 1;
 
 ?>
 
@@ -35,6 +36,7 @@ $count = mysqli_num_rows($result);
                 <th>ນາມສະກຸນ</th>
                 <th>ເພດ</th>
                 <th>ທັກສະ</th>
+                <th>ແກ້ໄຂ</th>
                 <th>ລຶບຂໍ້ມູນ</th>
                 <th>ລຶບຂໍ້ມູນ(checkbox)</th>
             </tr>
@@ -42,7 +44,7 @@ $count = mysqli_num_rows($result);
         <tbody>
             <?php while($row=mysqli_fetch_assoc($result)){  ?>
             <tr>
-                <td><?php echo $row["id"]; ?></td>
+                <td><?php echo $order++; ?></td>
                 <td><?php echo $row["fname"]; ?></td>
                 <td><?php echo $row["lname"]; ?></td>
                 <td>
@@ -55,14 +57,16 @@ $count = mysqli_num_rows($result);
                 </td>
                 <td><?php echo $row["skill"]; ?></td>
                 <td>
+                <a href="editForm.php?id=<?php echo $row["id"];?>" class="btn btn-primary">ແກ້ໄຂ</a>    
+                </td>
+                <td>
                     <a href="deleteQueryString.php?idemp=<?php echo $row['id']; ?>" class="btn btn-danger" onclick="return confirm('ຕ້ອງການລຶບແທ້ບໍ່')">ລຶບຂໍ້ມູນ</a>
                 </td>
-                <form action="multipledelete.php">
+                <form action="multipledelete.php" method="POST">
                 <td>
                     <div class="form">
                         <input type="checkbox" class="form-check-input" name="idcheckbox[]" value="<?php echo $row['id']; ?> ">
                     </div>
-                   
                 </td>
 
             </tr>
@@ -76,9 +80,28 @@ $count = mysqli_num_rows($result);
 
     <?php } ?>
     <a href="insertForm.php" class="btn btn-primary">ເພີ່ມພະນັກງານ</a>
-    <input type="submit" value="ລຶບຂໍ້ມູນ" class="btn btn-danger">
+    <input type="submit" value="ລຶບຂໍ້ມູນ(Checkbox)" class="btn btn-danger">
+    
     </form>
+    <button class="btn btn-primary" onclick="checkAll()" >ເລືອກທັງໝົດ</button>
+    <button class="btn btn-warning"  onclick="uncheckAll()" >ຍົກເລີກ</button>
     </div>
     
 </body>
+<script>
+    function checkAll(){
+        var form_element = document.forms[1].length; //4
+        for(i=0;i<form_element-1;i++){
+            document.forms[1].elements[i].checked=true;
+        }
+    }
+    function uncheckAll(){
+        var form_element = document.forms[1].length; //4
+        for(i=0;i<form_element-1;i++){
+            document.forms[1].elements[i].checked=false;
+        }
+    }
+</script>
+
+
 </html>
