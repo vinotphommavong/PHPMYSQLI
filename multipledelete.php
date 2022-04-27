@@ -9,8 +9,10 @@ $id_arr = $_POST["idcheckbox"];
 $multiple_id = implode(",",$id_arr);
 
 //print_r($multiple_id);
+//var_dump($multiple_id);
 
 $sql = "DELETE FROM employees WHERE id in ($multiple_id)";
+//echo $sql;
 
 $result = mysqli_query($con,$sql);
 

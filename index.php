@@ -31,6 +31,7 @@ $order = 1;
     <table border="1" class=" table table-bordered">
         <thead>
             <tr>
+                <th>ລຳດັບ</th>
                 <th>ລະຫັດພະນັກງານ</th>
                 <th>ຊື່</th>
                 <th>ນາມສະກຸນ</th>
@@ -45,6 +46,7 @@ $order = 1;
             <?php while($row=mysqli_fetch_assoc($result)){  ?>
             <tr>
                 <td><?php echo $order++; ?></td>
+                <td><?php echo $row </td>
                 <td><?php echo $row["fname"]; ?></td>
                 <td><?php echo $row["lname"]; ?></td>
                 <td>
