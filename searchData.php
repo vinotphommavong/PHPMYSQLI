@@ -1,15 +1,16 @@
-<?php 
-require('dbconnect.php');
-$sql = "select * from employees";
+<?php
+require("dbconnect.php");
+$name = $_POST["empname"];
+
+$sql = "SELECT * FROM employees WHERE fname LIKE '%$name%' ORDER BY fname ASC";
 $result = mysqli_query($con,$sql);
 
+
+//print_r($row);
 $count = mysqli_num_rows($result);
 $order = 1;
-
 ?>
 
-
-<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -77,11 +78,11 @@ $order = 1;
     </table>
     <?php }else{ ?>
         <div class="alert alert-warning">
-            <h3>ບໍມີຂໍ້ມູນພະນັກງານໃນຖານຂໍ້ມູນ</h3>
+            <h3>ບໍພົບຂໍ້ມູນພະນັກງານທີ່ຄົ້ນຫາ</h3>
         </div>
 
     <?php } ?>
-    <a href="insertForm.php" class="btn btn-primary">ເພີ່ມພະນັກງານ</a>
+    <a href="index.php" class="btn btn-primary">ກັບໜ້າທຳອິດ</a>
     <input type="submit" value="ລຶບຂໍ້ມູນ(Checkbox)" class="btn btn-danger">
     
     </form>
