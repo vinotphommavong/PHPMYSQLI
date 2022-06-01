@@ -31,7 +31,7 @@ $skill_arr = array("JAVA","PHP","PYTHON","HTML"); //ກຽມຕົວເລື�
 <body>
    <div class="container mt-3">
    <h2 class="text-center">ແບບຟອມແກ້ໄຂຂໍ້ມູນ</h2>
-    <form action="updateData.php" method="POST" >
+    <form action="updateData.php" method="POST" enctype="multipart/form-data">
         <input type="hidden" value="<?php echo $row["id"];?>" name="id" >
         <div class="form-group mt-2">
             <label for="firstname">ຊື່</label>
@@ -41,6 +41,12 @@ $skill_arr = array("JAVA","PHP","PYTHON","HTML"); //ກຽມຕົວເລື�
             <label for=lastname"">ນາມສະກຸນ</label>
             <input type="text" name="lname" class="form-control" value=<?php echo $row["lname"]; ?> >
         </div>
+        <div class="form-group my-2">
+            <label for="upload" >ເລືອກຮູບພາບ</label>
+            <input type="file" name="upload" >
+            <input type="hidden" name="avat"  value="<?php echo $row['av']; ?>"  class="form-control">
+        </div>
+
         <div class="form-group" >
             <label>ເພດ</label>
             <?php 
@@ -57,9 +63,9 @@ $skill_arr = array("JAVA","PHP","PYTHON","HTML"); //ກຽມຕົວເລື�
                 echo "<input type='radio' name='gender' value='female' >ຍິງ";
                 echo "<input type='radio' name='gender' value='other' checked>ອື່ນໆ";
             }
-            ?>
-            
-        </div>
+            ?>    
+        </div><br>
+        
         <div class="form-group">
             <label>ທັກສະຄວາມສາມາດ</label>
             <?php 

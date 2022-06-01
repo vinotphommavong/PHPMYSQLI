@@ -38,6 +38,7 @@ $order = 1;
             <tr>
                 <th>ລຳດັບ</th>
                 <th>ລະຫັດພະນັກງານ</th>
+                <th>ຮູບພາບ</th>
                 <th>ຊື່</th>
                 <th>ນາມສະກຸນ</th>
                 <th>ເພດ</th>
@@ -52,6 +53,7 @@ $order = 1;
             <tr>
                 <td><?php echo $order++; ?></td>
                 <td><?php echo $row["id"]; ?> </td>
+                <td><img src="<?php echo $row['av']; ?>" class="avatar"></td>
                 <td><?php echo $row["fname"]; ?></td>
                 <td><?php echo $row["lname"]; ?></td>
                 <td>

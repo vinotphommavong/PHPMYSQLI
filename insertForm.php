@@ -11,7 +11,7 @@
 <body>
    <div class="container mt-3">
    <h2 class="text-center">ແບບຟອມບັນທຶກຂໍ້ມູນ</h2>
-    <form action="insertData.php" method="POST" >
+    <form action="insertData.php" method="POST" enctype="multipart/form-data" >
         <div class="form-group mt-2">
             <label for="firstname">ຊື່</label>
             <input type="text" name="fname" class="form-control">
@@ -19,6 +19,10 @@
         <div class="form-group my-2">
             <label for=lastname"">ນາມສະກຸນ</label>
             <input type="text" name="lname" class="form-control">
+        </div>
+        <div class="form-group my-2">
+            <label for="upload" >ເລືອກຮູບພາບ</label>
+            <input type="file" name="upload">
         </div>
         <div class="form-group" >
             <label>ເພດ</label>
